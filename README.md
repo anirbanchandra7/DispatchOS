@@ -1,4 +1,4 @@
-# DispatchOS — Last Mile Dispatch & Fulfilment Control Tower
+# DispatchOS - Last Mile Dispatch & Fulfilment Control Tower
 
 A production-quality last-mile delivery operations platform: order lifecycle
 management, fulfilment, driver/vehicle allocation, dispatch, a live Control
@@ -23,12 +23,12 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000 — it redirects to `/login`. Pick any of the five
+Open http://localhost:3000 - it redirects to `/login`. Pick any of the five
 role cards (Admin, Operations Manager, Fulfilment Operator, Dispatcher,
 Driver) to sign in. This is a **mock authentication** flow (no password) so
 the app runs with zero configuration.
 
-No environment variables are required to run the app as shipped — see
+No environment variables are required to run the app as shipped - see
 "Connecting real services" below for what to add when you're ready to go
 live.
 
@@ -46,12 +46,12 @@ data:
 
 The store lives in a Node global (`globalThis.__dispatchStore`) so it
 survives Next.js Fast Refresh in dev. **It resets whenever the server process
-restarts** — this is intentional for a demo; see below for wiring a real
+restarts** - this is intentional for a demo; see below for wiring a real
 database.
 
 All reads and writes go through **Server Actions** in `lib/actions/*.ts`,
 which in turn call repository functions in `lib/store/repositories/*.ts`.
-No React component talks to the in-memory store directly — this is the seam
+No React component talks to the in-memory store directly - this is the seam
 that makes swapping to Supabase a repository-layer change only.
 
 ## Mock integrations (Uber Eats / Deliveroo)
@@ -80,7 +80,7 @@ external ID (`UE-xxxx` / `DLV-xxxx`).
 Implement `PlatformAdapter` against the real API (Uber Direct/Eats Order API,
 Deliveroo Order Webhook API), keep the same function signatures, and register
 it in `lib/integrations/index.ts`'s `adapters` map. Real integrations will
-likely be webhook-driven rather than polled — in that case, have the webhook
+likely be webhook-driven rather than polled - in that case, have the webhook
 handler call the same `addOrder()` repository function that
 `ingestPlatformOrders()` calls today, and update
 `platform_integrations.mode` from `MOCK` to `LIVE`.
@@ -99,7 +99,7 @@ tickGpsEngine() // advances every active delivery run along its route
 ```
 
 The Control Tower polls `getControlTowerSnapshot()` every 3 seconds, which
-calls `tickGpsEngine()` server-side before returning the snapshot — so the
+calls `tickGpsEngine()` server-side before returning the snapshot - so the
 simulated movement is driven by wall-clock elapsed time on the server, not a
 client-side animation loop. When a delivery run reaches 100% progress, the
 order is automatically marked `DELIVERED`, and the driver/vehicle
@@ -108,20 +108,20 @@ automatically return to `AVAILABLE`.
 ## Allocation rules engine
 
 All driver/vehicle assignment logic lives in
-`lib/dispatch/allocation-engine.ts` — never inside a React component:
+`lib/dispatch/allocation-engine.ts` - never inside a React component:
 
-- `getAvailableDrivers(order)` / `recommendDriver(order)` — filters to
+- `getAvailableDrivers(order)` / `recommendDriver(order)` - filters to
   `AVAILABLE` drivers with a valid licence, no active order, within the
   operational radius of the pickup point; sorted by distance, nearest first
-- `getAvailableVehicles(order)` / `recommendVehicle(order)` — the assigned
+- `getAvailableVehicles(order)` / `recommendVehicle(order)` - the assigned
   driver's own vehicle (if available and documents valid) always comes
   first and is marked `recommended`, followed by eligible company vehicles
-- `validateDriverAssignment` / `validateVehicleAssignment` — re-checked
+- `validateDriverAssignment` / `validateVehicleAssignment` - re-checked
   server-side on every assignment, rejecting: unavailable driver, expired
   licence, driver already on an active order, out-of-radius driver,
   unavailable vehicle, expired insurance/registration/inspection, vehicle
   already assigned to someone else
-- `dispatchOrder(orderId, actor)` — atomically moves the order to
+- `dispatchOrder(orderId, actor)` - atomically moves the order to
   `OUT_FOR_DELIVERY`, sets the driver to `BUSY`, the vehicle to `ASSIGNED`,
   deducts inventory, starts a GPS delivery run, and writes an audit entry +
   notification
@@ -156,7 +156,7 @@ Driver role sees only `/my-deliveries` and `/settings`.
 
 ### Supabase (database + auth)
 
-The target relational schema is in `database/schema.sql` — it defines every
+The target relational schema is in `database/schema.sql` - it defines every
 table (`orders`, `drivers`, `driver_documents`, `vehicles`,
 `driver_owned_vehicles`, `vehicle_documents`, `inventory`,
 `inventory_transactions`, `fulfilments`, `dispatches`, `delivery_runs`,
@@ -195,7 +195,7 @@ not need to change.
 
 ### Real Uber Eats / Deliveroo APIs
 
-See "Mock integrations" above — implement `PlatformAdapter` per platform and
+See "Mock integrations" above - implement `PlatformAdapter` per platform and
 register it in `lib/integrations/index.ts`.
 
 ### Mapbox instead of MapLibre + OSM tiles
@@ -210,21 +210,21 @@ API).
 ## Project structure
 
 ```
-/app                     — routes (App Router), grouped under (app) for the authenticated shell
-/components               — UI components, one folder per module + shared/layout/ui
-/lib/actions               — "use server" functions: the only way components read/write data
-/lib/dispatch               — order status actions + allocation engine (all business logic)
-/lib/gps                     — mock GPS routes + tick engine
-/lib/inventory                 — reservation/release/deduct logic
-/lib/sla                        — SLA countdown + threshold logic
-/lib/auth                        — roles, permissions matrix, mock session store
-/lib/notifications                 — in-app notification service (channel-extensible)
-/lib/audit                          — audit log writer/reader
-/lib/store                           — in-memory data store + repositories + seeding
-/lib/integrations                     — mock Uber Eats / Deliveroo adapters
-/lib/seed                              — realistic seed data generators
-/types                                  — domain types, mirrored by database/schema.sql
-/database                               — target Supabase/PostgreSQL schema
+/app                     - routes (App Router), grouped under (app) for the authenticated shell
+/components               - UI components, one folder per module + shared/layout/ui
+/lib/actions               - "use server" functions: the only way components read/write data
+/lib/dispatch               - order status actions + allocation engine (all business logic)
+/lib/gps                     - mock GPS routes + tick engine
+/lib/inventory                 - reservation/release/deduct logic
+/lib/sla                        - SLA countdown + threshold logic
+/lib/auth                        - roles, permissions matrix, mock session store
+/lib/notifications                 - in-app notification service (channel-extensible)
+/lib/audit                          - audit log writer/reader
+/lib/store                           - in-memory data store + repositories + seeding
+/lib/integrations                     - mock Uber Eats / Deliveroo adapters
+/lib/seed                              - realistic seed data generators
+/types                                  - domain types, mirrored by database/schema.sql
+/database                               - target Supabase/PostgreSQL schema
 ```
 
 ## Demo flow
@@ -232,11 +232,11 @@ API).
 1. Open the app → pick **Administrator** (full access) at `/login`.
 2. Watch a new Uber Eats/Deliveroo order arrive in the notification bell (polled every 8s).
 3. Go to **Fulfilment**, **Accept** a new order, **Mark Ready**.
-4. Go to **Dispatch**, select the order — a driver is recommended by distance/workload.
-5. Assign the driver, then assign a vehicle — the driver's own vehicle (if eligible) is starred as Recommended and listed above company vehicles.
-6. Confirm the dispatch summary and click **Dispatch Order** — the order becomes Out for Delivery, the driver goes Busy, the vehicle goes Assigned.
-7. Open **Control Tower** — the driver appears on the map and moves along a real pickup→customer route every ~3 seconds; ETA updates as progress advances.
-8. When the route completes, the order is auto-marked Delivered and the driver/vehicle return to Available — reflected immediately on the **Dashboard** KPIs.
+4. Go to **Dispatch**, select the order - a driver is recommended by distance/workload.
+5. Assign the driver, then assign a vehicle - the driver's own vehicle (if eligible) is starred as Recommended and listed above company vehicles.
+6. Confirm the dispatch summary and click **Dispatch Order** - the order becomes Out for Delivery, the driver goes Busy, the vehicle goes Assigned.
+7. Open **Control Tower** - the driver appears on the map and moves along a real pickup→customer route every ~3 seconds; ETA updates as progress advances.
+8. When the route completes, the order is auto-marked Delivered and the driver/vehicle return to Available - reflected immediately on the **Dashboard** KPIs.
 
 ## Deployment
 

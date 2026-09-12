@@ -40,7 +40,7 @@ export function InventoryTransactionsTable({ transactions }: { transactions: Inv
                 <TableCell className="font-medium">{t.sku}</TableCell>
                 <TableCell><Badge variant="outline" className={TYPE_STYLES[t.type]}>{t.type}</Badge></TableCell>
                 <TableCell>{t.type === "RESTOCK" || t.quantity > 0 ? "+" : ""}{t.quantity}</TableCell>
-                <TableCell className="text-muted-foreground">{t.note ?? "—"}</TableCell>
+                <TableCell className="text-muted-foreground">{t.note ?? "-"}</TableCell>
               </TableRow>
             ))}
           </TableBody>

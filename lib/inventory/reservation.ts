@@ -53,7 +53,7 @@ export function reserveInventoryForOrder(order: Order): ReservationResult {
 
 /**
  * Reserve stock for an order regardless of shortages ("Accept Anyway" from
- * the Fulfilment board) — reservedQuantity may exceed quantityOnHand,
+ * the Fulfilment board) - reservedQuantity may exceed quantityOnHand,
  * effectively backordering the short items. Every line is still logged.
  */
 export function forceReserveInventoryForOrder(order: Order): void {
@@ -62,7 +62,7 @@ export function forceReserveInventoryForOrder(order: Order): void {
     if (!inv) continue;
     inv.reservedQuantity += item.quantity;
     inv.updatedAt = new Date().toISOString();
-    recordTransaction(item.sku, "RESERVE", item.quantity, order.id, `Reserved (override — accepted despite shortage) for order ${order.externalOrderId}`);
+    recordTransaction(item.sku, "RESERVE", item.quantity, order.id, `Reserved (override - accepted despite shortage) for order ${order.externalOrderId}`);
     checkLowStock(inv.sku);
   }
 }

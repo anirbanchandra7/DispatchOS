@@ -86,7 +86,7 @@ export function generateOrders(
   ).length;
   // Reserve a handful of AVAILABLE drivers that stay fully free (no active
   // order), so the Dispatch workflow always has assignable candidates out
-  // of the box — but never reserve so many that active order slots below
+  // of the box - but never reserve so many that active order slots below
   // run out of distinct drivers and end up double-booked.
   const availableDrivers = drivers.filter((d) => d.status === "AVAILABLE");
   const reserveFreeCount = Math.min(3, Math.max(0, availableDrivers.length - activeSlotsNeeded));

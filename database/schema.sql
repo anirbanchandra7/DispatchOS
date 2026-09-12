@@ -1,4 +1,4 @@
--- Last Mile Dispatch & Fulfilment — Supabase/PostgreSQL schema
+-- Last Mile Dispatch & Fulfilment - Supabase/PostgreSQL schema
 -- This is the target relational schema for production use. The running MVP
 -- uses an in-memory store (see /lib/store) that implements the same shape,
 -- so migrating to this schema later only requires swapping the repository

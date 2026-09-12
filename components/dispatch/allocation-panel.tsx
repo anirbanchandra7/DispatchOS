@@ -54,7 +54,7 @@ export function AllocationPanel({ order, onChanged }: { order: Order; onChanged:
     const res = await dispatchOrderAction(order.id, actor);
     setLoading(false);
     if (!res.ok) { toast.error(res.error); return; }
-    toast.success("Order dispatched — now out for delivery");
+    toast.success("Order dispatched - now out for delivery");
     await onChanged();
   }
 

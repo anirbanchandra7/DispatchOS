@@ -69,7 +69,7 @@ export function MyDeliveriesView() {
     const res = await markCollectedAction(activeOrder.id, driverId, driver.fullName);
     setActionPending(false);
     if (!res.ok) return toast.error(res.error);
-    toast.success("Order collected — heading to customer");
+    toast.success("Order collected - heading to customer");
     refresh();
   }
 
@@ -79,7 +79,7 @@ export function MyDeliveriesView() {
     const res = await markDeliveredAction(activeOrder.id, driverId, driver.fullName);
     setActionPending(false);
     if (!res.ok) return toast.error(res.error);
-    toast.success("Order delivered — nice work!");
+    toast.success("Order delivered - nice work!");
     refresh();
   }
 
@@ -163,7 +163,7 @@ export function MyDeliveriesView() {
           <DialogFooter>
             <Button variant="outline" onClick={() => setFailDialogOpen(false)} disabled={actionPending}>Cancel</Button>
             <Button variant="destructive" onClick={handleFail} disabled={actionPending || !failReason.trim()}>
-              {actionPending ? "Submitting…" : "Confirm — mark failed"}
+              {actionPending ? "Submitting…" : "Confirm - mark failed"}
             </Button>
           </DialogFooter>
         </DialogContent>

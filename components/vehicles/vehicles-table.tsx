@@ -97,7 +97,7 @@ export function VehiclesTable({
                           <TableCell>{insuranceDoc ? <DocumentStatusBadge status={insuranceDoc.status} /> : <span className="text-xs text-muted-foreground">Not uploaded</span>}</TableCell>
                           <TableCell>{regDoc ? <DocumentStatusBadge status={regDoc.status} /> : <span className="text-xs text-muted-foreground">Not uploaded</span>}</TableCell>
                           <TableCell>{new Date(v.inspectionExpiry) > new Date() ? "Valid" : "Expired"}</TableCell>
-                          <TableCell className="text-muted-foreground">{driver?.fullName ?? "—"}</TableCell>
+                          <TableCell className="text-muted-foreground">{driver?.fullName ?? "-"}</TableCell>
                         </TableRow>
                       );
                     })}
@@ -136,7 +136,7 @@ export function VehiclesTable({
                             <p className="font-medium text-sm">{v.make} {v.model}</p>
                             <p className="text-xs text-muted-foreground">{v.registrationNumber}</p>
                           </TableCell>
-                          <TableCell>{driver?.fullName ?? "—"}</TableCell>
+                          <TableCell>{driver?.fullName ?? "-"}</TableCell>
                           <TableCell>{v.vehicleType}</TableCell>
                           <TableCell><VehicleStatusBadge status={v.status} /></TableCell>
                           <TableCell>{insuranceDoc && <DocumentStatusBadge status={insuranceDoc.status} />}</TableCell>

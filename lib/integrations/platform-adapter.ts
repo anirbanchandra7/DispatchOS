@@ -4,7 +4,7 @@ import type { Order, OrderStatus, Platform } from "@/types";
  * Common interface every delivery platform integration must implement.
  * Swapping a mock adapter for a real Uber Eats / Deliveroo client later
  * means implementing this interface against the real API and registering
- * it in `getAdapter()` below — no other application code changes.
+ * it in `getAdapter()` below - no other application code changes.
  */
 export interface PlatformAdapter {
   platform: Platform;

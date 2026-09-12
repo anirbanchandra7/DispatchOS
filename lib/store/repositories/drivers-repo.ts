@@ -39,7 +39,7 @@ export function listOwnedVehicles(): DriverOwnedVehicle[] {
 
 /**
  * Adds a new document of this type, or replaces the existing one of the
- * same type (e.g. renewing a licence) — a driver only ever has one current
+ * same type (e.g. renewing a licence) - a driver only ever has one current
  * document per type.
  */
 export function upsertDriverDocument(

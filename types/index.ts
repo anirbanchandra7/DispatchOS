@@ -178,7 +178,7 @@ export interface DriverDocument {
   fileName?: string;
   /** MIME type of the uploaded file, used to decide how to preview it. */
   mimeType?: string;
-  /** Base64 data URI of the uploaded file — mock "storage" for this demo. */
+  /** Base64 data URI of the uploaded file - mock "storage" for this demo. */
   dataUrl?: string;
   uploadedBy?: string;
 }
@@ -247,7 +247,7 @@ export interface VehicleDocument {
   fileName?: string;
   /** MIME type of the uploaded file, used to decide how to preview it. */
   mimeType?: string;
-  /** Base64 data URI of the uploaded file — this is the mock "storage" for the demo. */
+  /** Base64 data URI of the uploaded file - this is the mock "storage" for the demo. */
   dataUrl?: string;
   uploadedAt?: string;
   uploadedBy?: string;

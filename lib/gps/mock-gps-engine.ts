@@ -12,7 +12,7 @@ let lastTickAt = Date.now();
  * on elapsed wall-clock time and the driver's simulated speed.
  *
  * This engine only ever *moves* drivers and *parks* a run at the end of a
- * leg (AT_PICKUP / ARRIVED_AT_CUSTOMER) — it never advances order status or
+ * leg (AT_PICKUP / ARRIVED_AT_CUSTOMER) - it never advances order status or
  * completes a delivery on its own. Collection and delivery are driver
  * actions (see lib/dispatch/driver-actions.ts) so the order lifecycle
  * always reflects something a human actually did.

@@ -4,7 +4,7 @@ import type { AuditEntry, Order } from "@/types";
 /**
  * Backfills a plausible activity trail for the seeded orders so the
  * Dashboard's Live Activity feed and each order's Activity tab aren't
- * empty on a fresh server start — mirrors what recordAudit() would have
+ * empty on a fresh server start - mirrors what recordAudit() would have
  * written had these events happened live, just backdated to match each
  * order's own lifecycle timestamps.
  */

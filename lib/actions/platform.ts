@@ -17,10 +17,10 @@ export async function ingestPlatformOrders() {
     notify(
       "ORDER_RECEIVED",
       `New ${platformLabel(order.source)} order received`,
-      `Order ${order.externalOrderId} from ${order.customerName} — AED ${order.orderValue.toFixed(2)}`,
+      `Order ${order.externalOrderId} from ${order.customerName} - AED ${order.orderValue.toFixed(2)}`,
       { orderId: order.id },
     );
-    // Auto-accept (or hold for stock review) immediately after ingestion —
+    // Auto-accept (or hold for stock review) immediately after ingestion -
     // see lib/dispatch/auto-accept.ts for the rules.
     autoAcceptOrder(order);
   }

@@ -25,7 +25,7 @@ export async function getFulfilmentBoard(): Promise<FulfilmentCard[]> {
     .filter((o) => ACTIONABLE_STATUSES.includes(o.status))
     .map((order) => ({
       order,
-      // Only RECEIVED orders can still be held for stock — once accepted,
+      // Only RECEIVED orders can still be held for stock - once accepted,
       // stock is already reserved so a live shortage check is meaningless.
       shortages: order.status === "RECEIVED" ? checkStockForOrder(order) : [],
     }))

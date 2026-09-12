@@ -94,13 +94,13 @@ export async function dispatchOrderAction(orderId: string, actor: string) {
   return dispatchOrder(orderId, actor);
 }
 
-/** Dispatcher override for a stuck order — force-collect without the driver having tapped it. */
+/** Dispatcher override for a stuck order - force-collect without the driver having tapped it. */
 export async function forceCollectAction(orderId: string, actor: string) {
   ensureSeeded();
   return markCollected(orderId, undefined, actor, true);
 }
 
-/** Dispatcher override for a stuck order — force-deliver without the driver having tapped it. */
+/** Dispatcher override for a stuck order - force-deliver without the driver having tapped it. */
 export async function forceDeliverAction(orderId: string, actor: string) {
   ensureSeeded();
   return markDelivered(orderId, undefined, actor, true);

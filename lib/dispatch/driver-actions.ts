@@ -121,7 +121,7 @@ export function markDelivered(orderId: string, driverId: string | undefined, act
   return { ok: true };
 }
 
-/** Driver taps "Can't deliver" — closes the order as FAILED. */
+/** Driver taps "Can't deliver" - closes the order as FAILED. */
 export function markFailed(orderId: string, driverId: string | undefined, actor: string, reason: string): DriverActionResult {
   const order = getOrder(orderId);
   if (!order) return { ok: false, error: "Order not found" };
@@ -150,7 +150,7 @@ export function markFailed(orderId: string, driverId: string | undefined, actor:
   releaseVehicle(order);
   const run = getActiveDeliveryRun(orderId);
   if (run) {
-    run.status = "DELIVERED"; // closed — no longer an active run
+    run.status = "DELIVERED"; // closed - no longer an active run
     run.completedAt = now;
   }
 

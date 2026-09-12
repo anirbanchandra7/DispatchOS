@@ -1,7 +1,7 @@
 import type { StyleSpecification } from "maplibre-gl";
 
 /**
- * Free OpenStreetMap raster tiles — no API key required. Shared by every
+ * Free OpenStreetMap raster tiles - no API key required. Shared by every
  * MapLibre instance in the app (Control Tower, driver route map) so there's
  * one place to swap in Mapbox or another provider later (see README).
  */

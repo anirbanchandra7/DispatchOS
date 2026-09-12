@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
-  title: "DispatchOS — Last Mile Control Tower",
+  title: "DispatchOS - Last Mile Control Tower",
   description: "Last mile dispatch, fulfilment and delivery operations control tower.",
 };
 

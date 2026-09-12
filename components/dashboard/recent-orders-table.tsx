@@ -40,7 +40,7 @@ export function RecentOrdersTable({ orders }: { orders: RecentOrder[] }) {
                   <TableCell>{o.itemCount} items</TableCell>
                   <TableCell>AED {o.orderValue.toFixed(2)}</TableCell>
                   <TableCell><OrderStatusBadge status={o.status} /></TableCell>
-                  <TableCell className="text-right text-muted-foreground">{o.etaMinutes !== null ? `${o.etaMinutes} min` : "—"}</TableCell>
+                  <TableCell className="text-right text-muted-foreground">{o.etaMinutes !== null ? `${o.etaMinutes} min` : "-"}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

@@ -2,7 +2,7 @@ import { store } from "@/lib/store/data-store";
 import { newId } from "@/lib/id";
 import type { AppNotification, NotificationType } from "@/types";
 
-// Notification "channels" — today only the in-app channel is implemented.
+// Notification "channels" - today only the in-app channel is implemented.
 // To add email/WhatsApp/push later, implement the same NotificationSender
 // interface and register it in `senders` below; notify() will fan out to all.
 interface NotificationSender {

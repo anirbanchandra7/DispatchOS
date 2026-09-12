@@ -36,7 +36,7 @@ export default function SettingsPage() {
       <Card>
         <CardHeader>
           <CardTitle className="text-base">Profile</CardTitle>
-          <CardDescription>Mock authentication — real deployments connect this to Supabase Auth.</CardDescription>
+          <CardDescription>Mock authentication - real deployments connect this to Supabase Auth.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-2 text-sm">
           <div className="flex justify-between"><span className="text-muted-foreground">Name</span><span className="font-medium">{fullName}</span></div>

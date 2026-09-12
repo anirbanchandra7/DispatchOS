@@ -157,7 +157,7 @@ export function ControlTowerView({ initialSnapshot }: { initialSnapshot: Control
                 <Row label="Current Order" value={selectedDriver.currentOrderExternalId ?? "None"} />
                 {selectedDriver.legLabel && <Row label="Stage" value={selectedDriver.legLabel} />}
                 <Row label="Speed" value={`${selectedDriver.speedKmh} km/h`} />
-                <Row label="ETA" value={selectedDriver.etaMinutes ? `${selectedDriver.etaMinutes} min` : "—"} />
+                <Row label="ETA" value={selectedDriver.etaMinutes ? `${selectedDriver.etaMinutes} min` : "-"} />
                 <Row label="Last Update" value={formatDistanceToNow(new Date(selectedDriver.lastGpsUpdate), { addSuffix: true })} />
                 <Row label="Today's Deliveries" value={String(selectedDriver.todayDeliveries)} />
               </div>

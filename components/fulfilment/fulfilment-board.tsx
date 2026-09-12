@@ -122,7 +122,7 @@ export function FulfilmentBoard({ initialCards }: { initialCards: FulfilmentCard
       </div>
 
       {filtered.length === 0 ? (
-        <EmptyState icon={ClipboardCheck} title="No pending orders" description="Everything is fulfilled — new orders will appear here automatically." />
+        <EmptyState icon={ClipboardCheck} title="No pending orders" description="Everything is fulfilled - new orders will appear here automatically." />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
           {filtered.map(({ order: o, shortages }) => {

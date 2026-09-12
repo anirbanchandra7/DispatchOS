@@ -17,7 +17,7 @@ export interface AutoAcceptResult {
  * auto-accept is enabled and every line item has enough stock, the order
  * is accepted (and stock reserved) automatically via the same acceptOrder()
  * used by the manual Fulfilment flow. Otherwise it's left in RECEIVED for
- * a human to review — never auto-rejected.
+ * a human to review - never auto-rejected.
  */
 export function autoAcceptOrder(order: Order): AutoAcceptResult {
   const settings = getAppSettings();
@@ -30,7 +30,7 @@ export function autoAcceptOrder(order: Order): AutoAcceptResult {
     const summary = shortages.map((s) => `${s.productName} (need ${s.requested}, have ${s.available})`).join(", ");
     notify(
       "ORDER_HELD_STOCK",
-      "Order held — stock shortage",
+      "Order held - stock shortage",
       `Order ${order.externalOrderId} needs manual review: ${summary}.`,
       { orderId: order.id },
     );
@@ -44,6 +44,6 @@ export function autoAcceptOrder(order: Order): AutoAcceptResult {
   }
 
   // Extremely unlikely (e.g. a race where stock changed between the check
-  // and the reservation) — fall back to leaving it for manual review.
+  // and the reservation) - fall back to leaving it for manual review.
   return { outcome: "HELD_STOCK", shortages: result.shortages ?? [] };
 }

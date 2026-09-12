@@ -109,7 +109,7 @@ export default function LoginPage() {
             D
           </div>
           <h1 className="text-2xl font-semibold tracking-tight">DispatchOS</h1>
-          <p className="text-muted-foreground text-sm mt-1">Last mile dispatch &amp; fulfilment control tower — sign in as a role to continue</p>
+          <p className="text-muted-foreground text-sm mt-1">Last mile dispatch &amp; fulfilment control tower - sign in as a role to continue</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -140,7 +140,7 @@ export default function LoginPage() {
           })}
         </div>
         <p className="text-center text-xs text-muted-foreground mt-6">
-          Demo mode — mock authentication. Real deployments wire this to Supabase Auth.
+          Demo mode - mock authentication. Real deployments wire this to Supabase Auth.
         </p>
       </div>
     </div>

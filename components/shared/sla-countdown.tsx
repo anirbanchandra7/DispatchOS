@@ -20,7 +20,7 @@ export function SlaCountdown({ order, className }: { order: Order; className?: s
   }, []);
 
   if (["DELIVERED", "CANCELLED", "FAILED"].includes(order.status)) {
-    return <span className={cn("text-xs text-muted-foreground", className)}>—</span>;
+    return <span className={cn("text-xs text-muted-foreground", className)}>-</span>;
   }
 
   const sla = getOrderSla(order);

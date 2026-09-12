@@ -36,9 +36,9 @@ interface OrderDetail {
 
 const RUN_STAGE_LABEL: Record<DeliveryRun["status"], string> = {
   EN_ROUTE_PICKUP: "En route to pickup",
-  AT_PICKUP: "Arrived at pickup — waiting for driver to collect",
+  AT_PICKUP: "Arrived at pickup - waiting for driver to collect",
   EN_ROUTE_CUSTOMER: "En route to customer",
-  ARRIVED_AT_CUSTOMER: "Arrived at customer — waiting for driver to confirm delivery",
+  ARRIVED_AT_CUSTOMER: "Arrived at customer - waiting for driver to confirm delivery",
   DELIVERED: "Completed",
 };
 

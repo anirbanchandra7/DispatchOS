@@ -12,7 +12,7 @@ const platformLabel = (p: "UBER_EATS" | "DELIVEROO") => (p === "UBER_EATS" ? "Ub
 
 /**
  * Accepts an order and reserves stock. With `force: true` (the Fulfilment
- * board's "Accept Anyway"), stock is reserved regardless of shortages —
+ * board's "Accept Anyway"), stock is reserved regardless of shortages -
  * short items are effectively backordered rather than blocking the order.
  */
 export function acceptOrder(orderId: string, actor: string, force = false): ActionResult {
@@ -41,7 +41,7 @@ export function rejectOrder(orderId: string, actor: string, reason: string): Act
   if (["DELIVERED", "CANCELLED", "FAILED"].includes(order.status)) return { ok: false, error: "Order already closed" };
 
   // Stock is only reserved (not yet deducted) up until the driver actually
-  // collects the order — see lib/dispatch/driver-actions.ts. Cancelling
+  // collects the order - see lib/dispatch/driver-actions.ts. Cancelling
   // before collection releases the reservation; cancelling after collection
   // would need a return-to-stock flow, which is out of scope here.
   if (order.status !== "RECEIVED" && !order.collectedAt) releaseInventoryForOrder(order);
